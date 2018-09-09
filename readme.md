@@ -14,18 +14,18 @@
 
 Решение.
 
-Рассматриваем следующие случаи - 
-	Неперсистентные 
-		Session.SESSION_TRANSACTED  - 175 nanosec (session.commite() required!)
-		Session.AUTO_ACKNOWLEDGE    - 70 nanosec 
-		Session.DUPS_OK_ACKNOWLEDGE - 73 nanosec 
-		Session.CLIENT_ACKNOWLEDGE  - 101 nanosec (message.acknowledge(); required!)  
+Рассматриваем следующие случаи -   
+	Неперсистентные   
+		Session.SESSION_TRANSACTED  - 175 nanosec (session.commite() required!)  
+		Session.AUTO_ACKNOWLEDGE    - 70 nanosec   
+		Session.DUPS_OK_ACKNOWLEDGE - 73 nanosec   
+		Session.CLIENT_ACKNOWLEDGE  - 101 nanosec (message.acknowledge(); required!)    
   
-Персистентные 
-		Session.SESSION_TRANSACTED  -  nanosec (session.commite() and kahaDb required!) 
-		Session.AUTO_ACKNOWLEDGE    -  nanosec
-		Session.DUPS_OK_ACKNOWLEDGE -  nanosec 
-		Session.CLIENT_ACKNOWLEDGE  -  nanosec (message.acknowledge() and kahaDb required!)  
+Персистентные   
+		Session.SESSION_TRANSACTED  -  nanosec (session.commite() and kahaDb required!)   
+		Session.AUTO_ACKNOWLEDGE    -  nanosec  
+		Session.DUPS_OK_ACKNOWLEDGE -  nanosec   
+		Session.CLIENT_ACKNOWLEDGE  -  nanosec (message.acknowledge() and kahaDb required!)    
   
     Выставляем уровень логирования "error" чтобы отсеять ненужную информацию
     
