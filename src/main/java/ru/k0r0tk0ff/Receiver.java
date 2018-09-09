@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 
 import javax.jms.*;
 
-public class Receiver {
+public class Receiver extends Thread{
 
     private static final Logger LOG  = LoggerFactory.getLogger(Receiver.class);
 
@@ -46,11 +46,11 @@ public class Receiver {
 
             if (message instanceof TextMessage) {
                 TextMessage textMessage = (TextMessage) message;
-            LOG.info("Success received message. Message contains that - '" +
+            LOG.error("Success received message. Message contains that - '" +
             textMessage.getText() + "'");
             }
 
-            //message.acknowledge();
+            message.acknowledge();
             session.close();
             connection.close();
         } catch (JMSException e) {

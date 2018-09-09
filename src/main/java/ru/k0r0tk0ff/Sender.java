@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 
 import javax.jms.*;
 
-public class Sender {
+public class Sender extends Thread {
 
     private static final Logger LOG  = LoggerFactory.getLogger(Sender.class);
 
@@ -47,7 +47,7 @@ public class Sender {
 
             producer.send(message);
 
-            LOG.info("Message has been sent success. Message contains that - '" +
+            LOG.error("Message has been sent success. Message contains that - '" +
             message.getText() + "'");
 
             //session.commit();

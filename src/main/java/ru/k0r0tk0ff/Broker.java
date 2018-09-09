@@ -33,7 +33,7 @@ public class Broker {
             brokerService.start();
             LOG.info("Success start BrokerService ........");
 
-            brokerService.stop();
+            //brokerService.stop();
         //    brokerService.wait(3000);
             LOG.info("Success stop BrokerService ........");
         } catch (Exception e) {
