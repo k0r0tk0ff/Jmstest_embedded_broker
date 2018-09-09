@@ -18,16 +18,16 @@
 
 Рассматриваем следующие случаи -     
 	Неперсистентные     
-		Session.SESSION_TRANSACTED  - 175 nanosec (session.commite() required!)  
-		Session.AUTO_ACKNOWLEDGE    - 70 nanosec   
-		Session.DUPS_OK_ACKNOWLEDGE - 73 nanosec   
-		Session.CLIENT_ACKNOWLEDGE  - 101 nanosec (message.acknowledge(); required!)    
+		Session.SESSION_TRANSACTED  - 29 nanosec (session.commite() required!)  
+		Session.AUTO_ACKNOWLEDGE    - 25 nanosec   
+		Session.DUPS_OK_ACKNOWLEDGE - 23 nanosec   
+		Session.CLIENT_ACKNOWLEDGE  - 23 nanosec (message.acknowledge(); required!)    
   
 Персистентные   
-		Session.SESSION_TRANSACTED  -  nanosec (session.commite() and kahaDb required!)   
-		Session.AUTO_ACKNOWLEDGE    -  nanosec  
-		Session.DUPS_OK_ACKNOWLEDGE -  nanosec   
-		Session.CLIENT_ACKNOWLEDGE  -  nanosec (message.acknowledge() and kahaDb required!) 
+		Session.SESSION_TRANSACTED  -  56 nanosec (session.commite() and kahaDb required!)   
+		Session.AUTO_ACKNOWLEDGE    -  31 nanosec  
+		Session.DUPS_OK_ACKNOWLEDGE -  42 nanosec   
+		Session.CLIENT_ACKNOWLEDGE  -  37 nanosec (message.acknowledge() and kahaDb required!) 
 
   #### Решение Задачи 2.
 
@@ -35,16 +35,22 @@
     
 Рассматриваем следующие случаи -   
 	Неперсистентные   
-		Session.SESSION_TRANSACTED  - 175 nanosec (session.commite() required!)  
-		Session.AUTO_ACKNOWLEDGE    - 70 nanosec   
-		Session.DUPS_OK_ACKNOWLEDGE - 73 nanosec   
-		Session.CLIENT_ACKNOWLEDGE  - 101 nanosec (message.acknowledge(); required!)    
+		Session.SESSION_TRANSACTED  -  34 nanosec (session.commite() required!)  
+		Session.AUTO_ACKNOWLEDGE    -  26 nanosec   
+		Session.DUPS_OK_ACKNOWLEDGE -  23 nanosec   
+		Session.CLIENT_ACKNOWLEDGE  -  22 nanosec (message.acknowledge(); required!)    
   
 Персистентные   
-		Session.SESSION_TRANSACTED  -  nanosec (session.commite() and kahaDb required!)   
-		Session.AUTO_ACKNOWLEDGE    -  nanosec  
-		Session.DUPS_OK_ACKNOWLEDGE -  nanosec   
-		Session.CLIENT_ACKNOWLEDGE  -  nanosec (message.acknowledge() and kahaDb required!)    
+		Session.SESSION_TRANSACTED  -  46 nanosec (session.commite() and kahaDb required!)   
+		Session.AUTO_ACKNOWLEDGE    -  36 nanosec  
+		Session.DUPS_OK_ACKNOWLEDGE -  28 nanosec   
+		Session.CLIENT_ACKNOWLEDGE  -  29 nanosec (message.acknowledge() and kahaDb required!)  
+		
+  ----------------------------------------------------------------------------------------------------  
+  
+  ### Выводы 
+  1) Неперсистентные сообщения при использовании режима коннектора "vm" и "tcp" отрабатывают примерно одинаково (+- 5 ns)
+  2) Персистентные сообщения при использовании режима коннектора "vm" отрабатывают быстрее примерно на 5 ns
   
   
   
